@@ -1,0 +1,31 @@
+{% for empleado in empleados %}
+<form id="view_form" method="POST" action="/updateemployes">
+    <div class="modal-body">
+        <table id="editregistro" class="table table-striped table-bordered dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="datatable_info">
+            <tr>
+                <th>Documento</th>
+                <th>
+                    <input type="text" name="Documento" id="Documento" value="{{empleado.0}}" class="form-control" required="true" />
+                </th>
+            </tr>
+            <tr>
+                <th>Nombres</th>
+                <th>
+                    <input type="text" name="Nombres" id="Nombres" value="{{empleado.1}}" class="form-control" required="true" />
+                </th>
+            </tr>
+            <tr>
+                <th>Apellidos</th>
+                <th>
+                    <input type="text" name="Apellidos" id="Apellidos" value="{{empleado.2}}" class="form-control" required="true" />
+                </th>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <a href="/deleteemployes/{{empleado.0}}" class="btn btn-danger" onclick="return confirm('Estas seguro de eliminar el registro')">Eliminar</a>
+        <button type="submit" id="Insertar" class="btn btn-primary">Actualizar</button>
+    </div>
+</form>
+
+{% endfor %}
